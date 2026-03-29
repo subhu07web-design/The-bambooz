@@ -27,19 +27,19 @@ const Cart = () => {
       lastName: formData.lastName,
       email: formData.email,
       phone: formData.phone,
-      address: formData.address,
-      city: formData.city,
-      pin: formData.pin,
       product: cart.map(item => `${item.name} (x${item.quantity})`).join(', '),
       quantity: cart.reduce((total, item) => total + item.quantity, 0),
       price: totalPrice,
+      address: formData.address,
+      city: formData.city,
+      pin: formData.pin,
       timestamp: new Date().toISOString()
     };
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxyyRnfJ3VygGYFkvfhmnKu9Swnwuo1ZqdUT277SCBD2YXrM2go_shs6H_TxZIKzNI38w/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxP3MexvjBYqgSXZpjeaA2mXcd5bnUBDA9jY8A6NG67XuIPFjbLz2fVrufmQ7ixUPp91A/exec', {
         method: 'POST',
-        mode: 'no-cors', // Google Apps Script requires no-cors for simple POST or handles CORS specifically
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
