@@ -52,7 +52,7 @@ const About = () => {
           >
             <div className="rounded-[3rem] overflow-hidden aspect-[4/5]">
               <img
-                src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a9f-0166-744a-8a46-1c3412f0c0cc/result_0.webp"
+                src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a98-2bec-7bb0-ad42-c7115fccfd5c/result_0.jpeg"
                 alt="Chef Cooking"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

@@ -12,12 +12,12 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative h-[85vh] md:h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a98-2bec-7bb0-ad42-c7115fccfd5c/result_0.jpeg"
+            src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a9f-0166-744a-8a46-1c3412f0c0cc/result_0.webp"
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-100 brightness-[0.75]"
+            className="w-full h-full object-cover object-[center_40%] md:object-center opacity-100 brightness-[0.75]"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
@@ -32,10 +32,10 @@ const Home = () => {
             <span className="text-mint font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
               The Family Restaurant Made of Bamboos
             </span>
-            <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-8xl font-serif font-bold text-white mb-6 leading-tight">
               The <span className="text-mint">Bambooz</span> <br /> Family Restaurant
             </h1>
-            <p className="text-white/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-white/70 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
               Experience a premium culinary journey with our unlimited buffet, private dining, and authentic Chinese delicacies in the heart of North Lakhimpur.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -79,7 +79,7 @@ const Home = () => {
             >
               <div className="relative rounded-3xl overflow-hidden aspect-square">
                 <img
-                  src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a9f-0166-744a-8a46-1c3412f0c0cc/result_0.webp"
+                  src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a98-2bec-7bb0-ad42-c7115fccfd5c/result_0.jpeg"
                   alt="Restaurant Interior"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
