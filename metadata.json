@@ -1,0 +1,5 @@
+{
+  "name": "The Bambooz Family Restaurant",
+  "description": "Premium Chinese restaurant in North Lakhimpur, Assam, offering unlimited buffet and private dining.",
+  "requestFramePermissions": ["geolocation"]
+}
