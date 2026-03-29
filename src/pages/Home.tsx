@@ -15,7 +15,7 @@ const Home = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://res.cloudinary.com/duy2rot8s/image/upload/q_auto,f_auto/v1774776116/bambooz_gallery_img_4_ib9zqf.webp"
+            src="https://res.cloudinary.com/duy2rot8s/image/upload/q_auto,f_auto/v1774770900/bambooz_img_r46x3l.webp"
             alt="Hero Background"
             className="w-full h-full object-cover opacity-100 brightness-[0.8]"
             referrerPolicy="no-referrer"
