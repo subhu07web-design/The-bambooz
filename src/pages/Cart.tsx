@@ -7,17 +7,54 @@ import { useCart } from '../context/CartContext';
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
   const [isOrdered, setIsOrdered] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
+    email: '',
     phone: '',
-    address: ''
+    address: '',
+    city: '',
+    pin: ''
   });
 
-  const handleCheckout = (e: React.FormEvent) => {
+  const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate order processing
-    setIsOrdered(true);
-    clearCart();
+    setIsSubmitting(true);
+
+    const orderData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      city: formData.city,
+      pin: formData.pin,
+      product: cart.map(item => `${item.name} (x${item.quantity})`).join(', '),
+      quantity: cart.reduce((total, item) => total + item.quantity, 0),
+      price: totalPrice,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxyyRnfJ3VygGYFkvfhmnKu9Swnwuo1ZqdUT277SCBD2YXrM2go_shs6H_TxZIKzNI38w/exec', {
+        method: 'POST',
+        mode: 'no-cors', // Google Apps Script requires no-cors for simple POST or handles CORS specifically
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      // Since we use no-cors, we won't get a readable response, but we assume success if no error is thrown
+      setIsOrdered(true);
+      clearCart();
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      alert('There was an error placing your order. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isOrdered) {
@@ -141,13 +178,35 @@ const Cart = () => {
               </div>
 
               <form onSubmit={handleCheckout} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">First Name</label>
+                    <input
+                      required
+                      type="text"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Last Name</label>
+                    <input
+                      required
+                      type="text"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors"
+                    />
+                  </div>
+                </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Full Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Email Address</label>
                   <input
                     required
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors"
                   />
                 </div>
@@ -165,11 +224,33 @@ const Cart = () => {
                   <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Delivery Address</label>
                   <textarea
                     required
-                    rows={3}
+                    rows={2}
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors resize-none"
                   ></textarea>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">City</label>
+                    <input
+                      required
+                      type="text"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">PIN Code</label>
+                    <input
+                      required
+                      type="text"
+                      value={formData.pin}
+                      onChange={(e) => setFormData({ ...formData, pin: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white focus:outline-none focus:border-mint transition-colors"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -194,9 +275,10 @@ const Cart = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-mint text-black font-bold rounded-xl hover:bg-mint/80 transition-all shadow-[0_0_30px_rgba(94,234,212,0.2)]"
+                  disabled={isSubmitting}
+                  className={`w-full py-4 bg-mint text-black font-bold rounded-xl transition-all shadow-[0_0_30px_rgba(94,234,212,0.2)] ${isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-mint/80'}`}
                 >
-                  Place Order
+                  {isSubmitting ? 'Processing...' : 'Place Order'}
                 </button>
               </form>
             </div>
