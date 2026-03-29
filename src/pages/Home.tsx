@@ -12,15 +12,15 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] md:h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-black">
+      <section className="relative h-[85vh] md:h-screen flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
           <img
             src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a98-2bec-7bb0-ad42-c7115fccfd5c/result_0.jpeg"
             alt="Hero Background"
-            className="w-full h-full object-contain md:object-cover opacity-100 brightness-[0.75]"
+            className="w-full h-full object-cover object-[center_40%] md:object-center opacity-100 brightness-[0.75]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
