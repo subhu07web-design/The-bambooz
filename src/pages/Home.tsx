@@ -15,12 +15,12 @@ const Home = () => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://res.cloudinary.com/duy2rot8s/image/upload/v1774770900/bambooz_img_r46x3l.webp"
+            src="https://res.cloudinary.com/duy2rot8s/image/upload/q_auto,f_auto/v1774770900/bambooz_img_r46x3l.webp"
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-100"
+            className="w-full h-full object-cover opacity-100 brightness-[0.8]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
@@ -222,12 +222,12 @@ const Home = () => {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://res.cloudinary.com/duy2rot8s/image/upload/v1774775628/bambooz_ready_to_test_back_imge_rnrez0.webp"
+            src="https://res.cloudinary.com/duy2rot8s/image/upload/q_auto,f_auto/v1774775628/bambooz_ready_to_test_back_imge_rnrez0.webp"
             alt="CTA Background"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-60 brightness-[0.8]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
