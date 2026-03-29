@@ -52,7 +52,7 @@ const About = () => {
           >
             <div className="rounded-[3rem] overflow-hidden aspect-[4/5]">
               <img
-                src="https://res.cloudinary.com/duy2rot8s/image/upload/v1774772140/bambooz_img2_ke1hwg.webp"
+                src="https://delivery.pixelbin.io/predictions/outputs/30d/sr/upscale/019d3a9f-0166-744a-8a46-1c3412f0c0cc/result_0.webp"
                 alt="Chef Cooking"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
