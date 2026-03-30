@@ -37,7 +37,7 @@ const Cart = () => {
     };
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxyKwWoV8Ys3zb60iMm14ZWOJ5HIb4-Pjdbwd-y9UeaONmYyV2LToLqxMS0yRQ8gjOM1A/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzx7GpVaQIsFpX4WEkw16LG86L_HG-YGnGYaX9knOUsfCgZpgB_KXSzEQogUSlAP2IuOw/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
