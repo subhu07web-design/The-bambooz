@@ -37,11 +37,11 @@ const Cart = () => {
     };
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwOzymYxmQfLzUXJeizKFaWWcEji020YFyv318sOEu2x87cMHJwxfhDg2MnIX2RQvAbmg/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwf2XcZh9f7WnEmNyifWvLc3A1jLO1XaRGospYI6L_AO9CyeFWAQUXHfbDsldRrFjlO0A/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain',
         },
         body: JSON.stringify(orderData),
       });
